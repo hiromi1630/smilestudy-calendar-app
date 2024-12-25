@@ -21,6 +21,15 @@
 
   let lessonNum: LessonNum = {};
   let year: number, month: number;
+  let lessonSum: number = 0;
+  $: if (alreadyCompleteLoad) {
+    lessonNum = calcLessons($RawSheetValues, year, month);
+    lessonSum = 0;
+    for (const lesson of Object.values(lessonNum)) {
+      lessonSum += lesson;
+    }
+  }
+  let alreadyCompleteLoad: boolean = false;
   DisplayedMonth.subscribe((v) => {
     year = v.year();
     month = v.month();
@@ -64,6 +73,7 @@
         console.log($CalendarEvents);
 
         OverlayState.set(false);
+        alreadyCompleteLoad = true;
       } else if (promise.ok === false) {
         console.error(promise.error);
 
@@ -89,6 +99,7 @@
           </button>
         </div>
         <Calendar />
+        <p>コマ数: {lessonSum}コマ</p>
       </NavigationBar>
       <Overlay />
     </div>
