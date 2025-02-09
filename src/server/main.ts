@@ -36,12 +36,12 @@ export const LoadDataFromSheet = (header: boolean): APIResult =>
   ErrorHandler(() => loadDataFromSheet(header));
 
 export const DeleteEventById = (id: string): APIResult =>
-  ErrorHandler(() => deleteDataFromSheetById(SHEET_ID_MAIN, id));
+  ErrorHandler(() => deleteDataFromSheetById("main", id));
 
 export const AddEvents = (events: any[][]): APIResult =>
   ErrorHandler(() => {
-    appendDataToSheet(SHEET_ID_MAIN, ...events);
-    sortSheet(SHEET_ID_MAIN, [2, 3]);
+    appendDataToSheet("main", ...events);
+    sortSheet("main", [2, 3]);
   });
 
 export const GetScriptProperties = (): APIResult =>
