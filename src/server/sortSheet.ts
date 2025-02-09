@@ -1,6 +1,6 @@
-function sortSheet(id: number, sortSpecObj: number | Object) {
+function sortSheet(sheetName: string, sortSpecObj: number | Object) {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheets().filter((sheet) => sheet.getSheetId() === id)[0];
+  const sheet = ss.getSheets().filter((sheet) => sheet.getSheetName() === sheetName)[0];
 
   const rowCount = sheet.getLastRow() - 1;
   const colCount = sheet.getLastColumn();

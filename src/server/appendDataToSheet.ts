@@ -1,6 +1,6 @@
-const appendDataToSheet = (id: number, ...data: any[]): boolean => {
+const appendDataToSheet = (sheetName: string, ...data: any[]): boolean => {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheets().filter((sheet) => sheet.getSheetId() === id)[0];
+  const sheet = ss.getSheets().filter((sheet) => sheet.getSheetName() === sheetName)[0];
 
   const table = sheet.getDataRange().getDisplayValues().slice(1);
   assert(
@@ -12,16 +12,16 @@ const appendDataToSheet = (id: number, ...data: any[]): boolean => {
     'データの形式が不正です。',
   );
 
-  if (id === SHEET_ID_MAIN) {
+  if (sheetName === "main") {
     const classrooms = ss
       .getSheets()
-      .filter((sheet) => sheet.getSheetId() === SHEET_ID_CLASSROOMS)[0]
+      .filter((sheet) => sheet.getSheetName() === "classrooms")[0]
       .getDataRange()
       .getDisplayValues();
 
     const teachers = ss
       .getSheets()
-      .filter((sheet) => sheet.getSheetId() === SHEET_ID_TEACHERS)[0]
+      .filter((sheet) => sheet.getSheetName() === "teachers")[0]
       .getDataRange()
       .getDisplayValues();
 

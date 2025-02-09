@@ -1,8 +1,8 @@
-const deleteDataFromSheetById = (sheetId: number, id: string): boolean => {
+const deleteDataFromSheetById = (sheetName: string, id: string): boolean => {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
-  const sheet = ss.getSheets().find((sheet) => sheet.getSheetId() === sheetId);
+  const sheet = ss.getSheets().find((sheet) => sheet.getSheetName() === sheetName);
 
-  assert(sheet, '該当するシートが存在しません。:' + sheetId);
+  assert(sheet, '該当するシートが存在しません。:' + sheetName);
 
   const row = sheet
     .getDataRange()
