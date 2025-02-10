@@ -27,7 +27,7 @@ export const SheetColumnIndex = readable({
     classroom: 5,
     subject: 6,
     lessonType: 7,
-    done: 8,
+    rescheduled: 8,
   },
   teachers: {
     id: 0,

@@ -24,7 +24,7 @@ export const createCalendarEvents = (
     idClassroom,
     idSubject,
     idLessonType,
-    done,
+    rescheduled,
   ] of contentsMain) {
     const teacher = contentsTeacher.find((v) => v[0] === idTeacher);
     const classroom = contentsClassroom.find((v) => v[0] === idClassroom);
@@ -83,7 +83,7 @@ export const createCalendarEvents = (
         id: lessonType[0],
         name: lessonType[1],
       },
-      done,
+      rescheduled,
     });
   }
 

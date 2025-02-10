@@ -43,7 +43,7 @@ export type CalendarEvent = {
   classroom: Classroom;
   subject: Subject;
   lessonType: LessonType;
-  done: boolean;
+  rescheduled: boolean;
 };
 
 export type LessonNum = {

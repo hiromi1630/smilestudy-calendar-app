@@ -38,6 +38,9 @@ export const LoadDataFromSheet = (header: boolean): APIResult =>
 export const DeleteEventById = (id: string): APIResult =>
   ErrorHandler(() => deleteDataFromSheetById("main", id));
 
+export const ToggleRescheduleEventById = (id: string): APIResult =>
+  ErrorHandler(() => ToggleRescheduleOfSheet("main", id));
+
 export const AddEvents = (events: any[][]): APIResult =>
   ErrorHandler(() => {
     appendDataToSheet("main", ...events);
